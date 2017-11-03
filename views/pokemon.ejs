@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Pokemon Home Page</title>
+</head>
+
+<body>
+<h1>Pokemon Home Page</h1>
+<table>
+<thead>
+<tr class="table-rows">
+<th>Name </th>
+<th>ID </th>
+<th> Trainer ID </th>
+<th> CP </th>
+<th> In Gym </th>
+</tr>
+</thead>
+<tbody>
+<% for(let i=0; i<pokemon.length; i++){ %>
+<tr class="table-rows">
+<td><%= pokemon[i].name%></td>
+<td><%= pokemon[i].id %></td>
+<td><%= pokemon[i].trainer_id %></td>
+<td><%= pokemon[i].cp %></td>
+<td><%= pokemon[i].in_gym %></td>
+<!-- <td><a href="#">Assign to Gym</a></td> -->
+<td><a href="/pokemon/edit/<%=pokemon[i].id%>">Edit</a></td>
+<td><a href="/pokemon/delete/<%=pokemon[i].id%>">Delete</a></td>
+<!-- <td><a href= "/pokemon/new" method="get"> + Add New Pokemon</a> -->
+</tr>
+<%  } %>
+</tbody>
+</table>
+</div>
+
+<form action="/pokemon" method="post">
+  <input type="text" name="name" placeholder="Pokemon Name">
+  <input type="number" name="trainer_id" placeholder="Pokemon Trainer Id">
+  <input type="number" name="cp" placeholder="Combat Power">
+  <input type="submit" value="+ Add This Pokemon">
+</body>
+</html>
