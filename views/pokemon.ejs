@@ -1,45 +1,37 @@
-<!DOCTYPE html>
-<html>
+<%- contentFor('body') %>
 
-<head>
-<meta charset="utf-8">
-<title>Pokemon Home Page</title>
-</head>
+<h3 class='black-text'>POKEMON HOME PAGE</h3>
+  <table class="highlight">
+    <thead>
+        <tr class="bold-italic-text">
+          <th class="black-text">ID </th>
+          <th class="black-text">NAME </th>
+          <th class="black-text">TRANIER ID </th>
+          <th class="black-text"> COMBAT POWER </th>
+          <th class="black-text"> IN GYM </th>
+        </tr>
+      </thead>
+      <tbody class="bold-italic-text">
+        <% for(let i=0; i < pokemon.length; i++){ %>
+          <tr class="bold-italic-text">
+            <td class="black-text"><%= pokemon[i].id%></td>
+            <td class="black-text"><a href="/show/<%= pokemon[i].id %>"><%= pokemon[i].name%></a></td>
+            <td class="black-text"><%= pokemon[i].trainer_id%></td>
+            <td class="black-text"><%= pokemon[i].cp %></td>
+            <td class="black-text"><%= pokemon[i].in_gym %></td>
+            <td class="black-text"><a href="" class="waves-effect waves-light btn add-pokemon-btn">REMOVE FROM GYM</a></td>
+            <td class="black-text"><a href=""class="waves-effect waves-light btn add-pokemon-btn">ASSIGN TO GYM</a></td>
+            <td class="black-text"><a href="/editNew/<%=pokemon[i].id%>" class="waves-effect waves-light btn add-pokemon-btn">EDIT</a></td>
+            <td class="black-text"><a href="/delete/<%=pokemon[i].id%>" class="waves-effect waves-light btn add-pokemon-btn">DELETE</a></td>
+          </tr>
+          <%  } %>
+        </tbody>
+      </table>
 
-<body>
-<h1>Pokemon Home Page</h1>
-<table>
-<thead>
-<tr class="table-rows">
-<th>Name </th>
-<th>ID </th>
-<th> Trainer ID </th>
-<th> CP </th>
-<th> In Gym </th>
-</tr>
-</thead>
-<tbody>
-<% for(let i=0; i<pokemon.length; i++){ %>
-<tr class="table-rows">
-<td><%= pokemon[i].name%></td>
-<td><%= pokemon[i].id %></td>
-<td><%= pokemon[i].trainer_id %></td>
-<td><%= pokemon[i].cp %></td>
-<td><%= pokemon[i].in_gym %></td>
-<!-- <td><a href="#">Assign to Gym</a></td> -->
-<td><a href="/pokemon/edit/<%=pokemon[i].id%>">Edit</a></td>
-<td><a href="/pokemon/delete/<%=pokemon[i].id%>">Delete</a></td>
-<!-- <td><a href= "/pokemon/new" method="get"> + Add New Pokemon</a> -->
-</tr>
-<%  } %>
-</tbody>
-</table>
-</div>
+<div><a href= "http://localhost:8000/pokemon/create/" class="waves-effect waves-light btn add-pokemon-btn" method="get"> + ADD NEW POKEMON</a></div>
 
-<form action="/pokemon" method="post">
-  <input type="text" name="name" placeholder="Pokemon Name">
-  <input type="number" name="trainer_id" placeholder="Pokemon Trainer Id">
-  <input type="number" name="cp" placeholder="Combat Power">
-  <input type="submit" value="+ Add This Pokemon">
-</body>
-</html>
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

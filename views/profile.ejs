@@ -1,0 +1,33 @@
+<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
+<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
+<%- contentFor('body') %>
+
+  <h3 class='highlight bold-italic-text'>Pokemon Properties</h3>
+  <table class='highlight bold-italic-text'>
+    <thead>
+      <tr class="table-rows">
+        <th>Name </th>
+        <th>ID </th>
+        <th>Trainer Name</th>
+        <th> Trainer ID </th>
+        <th> CP </th>
+        <th> In Gym </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-rows">
+        <td><%= pokemonProperties.name %></td>
+        <td><%= pokemonProperties.id %></td>
+        <td><%= trainer.name %></td>
+        <td><%= pokemonProperties.trainer_id %></td>
+        <td><%= pokemonProperties.cp %></td>
+        <td><%= pokemonProperties.in_gym %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

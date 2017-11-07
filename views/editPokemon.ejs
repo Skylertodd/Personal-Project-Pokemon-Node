@@ -1,0 +1,32 @@
+<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
+<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
+<%- contentFor('body') %>
+
+    <h3 class='bold-italic-text'>Currently Editing: <%= pok.name %></h3>
+    <form class='highlight' action="/update/<%= pok.id %>" method="post">
+      <input class="highlight"type="text" name="name" value="<%= pok.name %>">
+      <input class="highlight"type="number" name="trainer_id" value="<%= pok.trainer_id %>">
+      <input class="highlight"type="text" name="trainer_name" value="<%= trainer.name %>">
+      <input class="highlight" type="text" name="in_gym" value="<%= pok.in_gym %>">
+      <input class="highlight"type="number" name="cp" value="<%= pok.cp %>">
+      <input class="highlightwaves-effect waves-light btn add-pokemon-btn" type="submit" value="UPDATE POKEMON PROPERTIES">
+    </form>
+
+
+
+<!-- <h2>Trainer:</h2>
+<select name="trainer_id">
+  <% for (var i = 0; i < trainer.length; i++) {
+     if (trainer[i].id === pok.trainer_id) { %>
+      <option value="<%= trainer[i].id %>" selected><%= trainer[i].name %></option>
+    <% } else { %>
+      <option value="<%= trainer[i].id %>"><%= trainer[i].name %></option>
+    <% }
+   } %>
+</select> -->
+
+<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

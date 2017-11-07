@@ -2,23 +2,26 @@ const knex = require("../db/knex.js");
 
 module.exports = {
 
-  list: function(req, res) {
-    knex('trainers')
-    .then((results)=>{
-      res.render('trainers', {trainer: results});
+  // GET LISTING OF TRAINERS
+  getTrainers: function(req, res) {
+    knex('trainers').then((result) =>{
+
+      res.render('trainers', {tra: result});
     })
   },
-  show: function(req, res){
+
+  //SHOW POKEMON CURRENTLY IN TRAINING FOR A SPECIFIC TRAINER
+  showTrainers: function(req, res){
     knex('trainers')
-    .where('id', req.params.id)
-      .then((trainer)=>{
+      .where('id', req.params.id)
+      .then((trainers)=>{
 
         knex('pokemon')
-          .where('trainer_id', trainer[0].id)
-          .then((trainer)=>{
+          .where('trainer_id', trainers[0].id)
+          .then((traineeList)=>{
 
-            res.render('show', {trainer: trainer[0], trainer: trainer});
+            res.render('showTrainers', {trainerPokemon: trainers[0], trainees: traineeList});
           })
-      })
+    })
   },
 }

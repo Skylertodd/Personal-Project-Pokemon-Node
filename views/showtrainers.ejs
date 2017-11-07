@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h4>Trainer: <%= maintrainer.name %></h4>
-    <table>
-    <thead>
+<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
+<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
+<%- contentFor('body') %>
+
+    <h3 class='bold-text'>Trainer: <%= trainerPokemon.name %></h3>
+    <table class=' highlight bold-text'>
+    <thead class='highlight bold-text'>
     <tr>
-    <th>Pokemon in Training</th>
+    <h5>Pokemon In Training</h5>
     </tr>
     </thead>
-    <tbody>
-    <% for(var i=0; i<trainer.length; i++) { %>
+    <tbody class='bold-text'>
+    <% for(var i=0; i<trainees.length; i++) { %>
     <tr>
-    <td><%= trainer[i].name %></td>
+    <td class='bold-text'><%= trainees[i].name %></td>
     </tr>
     <% } %>
     </tbody>
     </table>
-  </body>
-</html>
+
+    <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

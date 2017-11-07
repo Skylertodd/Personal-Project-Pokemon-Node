@@ -76,7 +76,7 @@ a img{
 
 
 .pokemon-header {
-  overflow: visible;
+  overflow: hidden;
   background-color: white;
 }
 
@@ -547,4 +547,5 @@ a img{
   .pokemon-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
+
 }

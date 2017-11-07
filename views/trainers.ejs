@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title></title>
-</head>
-<body>
-<h4>Pokemon Trainer Home Page</h4>
-</div>
-<div>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Trainer ID</th>
-</tr>
-</thead>
-<tbody>
-<% for(let i=0; i<trainer.length; i++){ %>
-<tr>
-<td><%= trainer[i].id %></td>
-<td><%= trainer[i].name %></td>
-<td>
-<a href="/show/trainer/<%= trainer[i].id %>"><%= trainer[i].name %></a>
-</td>
-</tr>
-<%  } %>
-</tbody>
-</table>
-</div>
-</body>
-</html>
+<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
+<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
+<%- contentFor('body') %>
+
+<h3 class='bold-text'>Trainer Home Page</h3>
+<table class='highlight bold-text'>
+  <thead class='bold-text'>
+    <tr class="table-rows">
+      <th>Trainer ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody class='bold-text'>
+    <% for(let i=0; i<tra.length; i++){ %>
+      <tr class="table-rows">
+        <td><%= tra[i].id %></td>
+        <td><a href="/show/trainer/<%= tra[i].id %>"><%= tra[i].name %></a></td>
+      </tr>
+      <%  } %>
+    </tbody>
+  </table>
+  <tbody>
+
+    <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>

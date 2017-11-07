@@ -3,28 +3,35 @@ const index = require("../controllers/index.js");
 const pokemon = require("../controllers/pokemon.js");
 const trainers = require("../controllers/trainers.js");
 
-
 module.exports = function(app){
+//GET ROUTE FOR MAIN INDEX PAGE
+  app.get('/', pokemon.index);
 
-  app.get('/', index.main);
+//GET ROUTE FOR LISTING OF ALL POKEMON AND THEIR PROPERTIES
+  app.get('/pokemon', pokemon.getAll);
 
-  // app.get('/', pokemon.main);
+//GET ROUTE FOR SHOWING LISTING OF ONE POKEMON AND IT 'S PROPERTIES
+  app.get('/show/:id', pokemon.showAll);
 
-  app.get('/pokemon', pokemon.main);
+//GET ROUTE FOR CREATE PAGE
+  app.get('/pokemon/create', pokemon.create);
 
-  app.get('/pokemon/show/:id', pokemon.show);
+//POST ROUTE FOR CREATING AND ADDING NEW POKEMON
+  app.post('/pokemon/createNew', pokemon.createNew);
 
-  app.get('/pokemon/new', pokemon.new);
+//GET ROUTE DELETE POKEMON FROM PAGE
+  app.get('/delete/:id', pokemon.delete);
 
-  app.post('/pokemon/add', pokemon.add);
+//GET ROUTE FOR THE EDIT FORM USED TO MAKE CHANGES IN THE  POKEMON PROPERTIES
+  app.get('/editNew/:id', pokemon.editNew);
 
-  app.get('/pokemon/delete/:id', pokemon.delete);
+//POST ROUTE FOR UPDATING POKEMON PROPERTIES
+  app.post('/update/:id', pokemon.update);
 
-  app.get('/pokemon/edit/:id', pokemon.edit);
+ //GET ROUTE FOR LISTING ALL THE  TRAINERS
+  app.get('/trainers', trainers.getTrainers);
 
-  app.post('/pokemon/change/:id', pokemon.change);
+//GET ROUTE FOR SHOWING ALL THE  POKEMON IN TRAINING FOR A SPECIFIC TRAINER
+  app.get('/show/trainer/:id', trainers.showTrainers);
 
-  app.get('/trainers', trainers.list);
-
-  app.get('/show/trainer/:id', trainers.show);
-}
+ }

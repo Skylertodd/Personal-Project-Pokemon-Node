@@ -1,0 +1,19 @@
+<!-- DO NOT TOUCH LINE 3 ! This imports our HTML layout-->
+<!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
+<%- contentFor('body') %>
+
+  <h3>ADD NEW POKEMON</h3>
+  <form class='highlight' action="/pokemon/createNew" method="post">
+    <input class='bold-italic-text'type="text" name="name" placeholder="CREATE NEW POKEMON NAME">
+    <input class='bold-italic-text'type="number" name="trainer_id" placeholder="ADD NEW TRAINER ID">
+    <input class='bold-italic-text' type="number" name="cp" placeholder="ADD NEW COMBAT POWER">
+    <input class='bold-italic-text'type="text" name="in_gym" placeholder="IN GYM: TRUE OR FALSE?">
+    <input class="waves-effect waves-light btn add-pokemon-btn" type="submit" value="+ ADD NEW POKEMON">
+  </form>
+
+  
+    <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
