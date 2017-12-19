@@ -16,6 +16,7 @@
 
 body {
   margin: 0;
+  background-color: black;
 }
 
 /* Disable ugly boxes around images in IE10 */
@@ -24,17 +25,17 @@ a img{
 }
 
 ::-moz-selection {
-  background-color: #6ab344;
+  background-color: black;
   color: #fff;
 }
 
 ::selection {
-  background-color: #6ab344;
+  background-color: black;
   color: #fff;
 }
 
 .pokemon-main{
-  background-color: #eee;
+  background-color: black;
 }
 
 .app-content{
@@ -72,12 +73,13 @@ a img{
 .pokemon-logo-image {
   height: 28px;
   width: 140px;
+  background-color: black;
 }
 
 
 .pokemon-header {
   overflow: hidden;
-  background-color: white;
+  background-color: black;
 }
 
   .pokemon-header .material-icons {
@@ -125,7 +127,7 @@ a img{
     display: inline-block;
     height: 60px;
     line-height: 68px;
-    background-color: transparent !important;
+    background-color: black;
     border-bottom: 4px solid transparent;
   }
 
@@ -154,7 +156,7 @@ a img{
 
   .pokemon-drawer-separator {
     height: 1px;
-    background-color: #dcdcdc;
+    background-color: black;
     margin: 8px 0;
   }
 
@@ -169,20 +171,21 @@ a img{
 
   .pokemon-drawer .mdl-layout-title {
     position: relative;
-    background: #6ab344;
+    background-color: black;
     height: 160px;
   }
 
     .pokemon-drawer .pokemon-logo-image {
       position: absolute;
       bottom: 16px;
+      background-color: black;
     }
 
 .pokemon-be-together-section {
   position: relative;
   height: 800px;
   width: auto;
-  background-color: #f3f3f3;
+  background-color: black;
   background: url('images/slide01.jpg') center 30% no-repeat;
   background-size: cover;
 }
@@ -190,18 +193,20 @@ a img{
 .logo-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
-  color: #767777;
   font-weight: 500;
+  background-color: black;
 }
 
 .pokemon-slogan {
   font-size: 60px;
   padding-top: 160px;
+  background-color: black;
 }
 
 .pokemon-sub-slogan {
   font-size: 21px;
   padding-top: 24px;
+  background-color: black;
 }
 
 .pokemon-create-character {
@@ -311,8 +316,8 @@ a img{
 .pokemon-wear-section {
   position: relative;
   background: url('/images/ball_background_opaque.png') center top no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 800px;
 }
 
 .pokemon-wear-band {
@@ -320,7 +325,7 @@ a img{
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: #37474f;
+  background-color: black;
 }
 
 .pokemon-wear-band-text {
@@ -437,7 +442,7 @@ a img{
   }
 
 .pokemon-footer {
-  background-color: #fafafa;
+  background-color: black;
   position: relative;
 }
 
