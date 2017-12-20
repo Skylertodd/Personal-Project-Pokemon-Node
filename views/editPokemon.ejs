@@ -2,7 +2,7 @@
 <!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
 <%- contentFor('body') %>
 
-    <h3 class='bold-italic-text'>CURRENTLY EDITING: <%= pok.name %></h3>
+    <h3 class='responsive bold-italic-text'>CURRENTLY EDITING: <%= pok.name %></h3>
     <form class='highlight' action="/update/<%= pok.id %>" method="post">
       <label for="name">CHANGE POKEMON NAME:</label>
       <input class="highlight"type="text" name="name" value="<%= pok.name %>" placeholder="CHANGE POKEMON NAME">
@@ -10,9 +10,9 @@
       <input class="highlight"type="number" name="trainer_id" value="<%= pok.trainer_id %>"placeholder="CHANGE TRAINER ID">
       <!-- <input class="highlight"type="text" name="trainer_name" value="<%= trainer.name %>"placeholder="CHANGE TRAINER NAME"> -->
       <label for="name">CHANGE COMBAT POWER:</label>
-      <input class="highlight" type="text" name="in_gym" value="<%= pok.in_gym %>"placeholder="IN GYM: TRUE OR FALSE?">
-      <label for="name">IN GYM: TRUE OR FALSE?</label>
       <input class="highlight"type="number" name="cp" value="<%= pok.cp %>"placeholder="CHANGE COMBAT POWER">
+      <label for="name">IN GYM: TRUE OR FALSE?</label>
+      <input class="highlight" type="text" name="in_gym" value="<%= pok.in_gym %>"placeholder="IN GYM: TRUE OR FALSE?">
       <input class="highlightwaves-effect waves-light btn add-pokemon-btn" type="submit" value="UPDATE POKEMON PROPERTIES">
     </form>
 
