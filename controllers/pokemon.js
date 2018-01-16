@@ -9,7 +9,7 @@ module.exports = {
   getAll: function(req, res) {
     knex('pokemon').then((result) => {
 
-      res.render('pokemon', {pokemon: result})
+      res.render('pokemon', {pokemon: result, gym:req.session.pokemon})
     })
     .catch((err) => {
       console.error(err)
@@ -34,6 +34,28 @@ module.exports = {
   //CREATE PAGE
   create: function(req, res) {
     res.render('create')
+  },
+
+//ASSIGN ONE POKEMON TO THE GYM
+  addToGym: function(req, res){
+    knex('pokemon').where("id", req.params.id).then((result)=>{
+      if(req.session.pokemon.length<2){
+        req.session.pokemon.push(result[0]);
+      }
+      req.session.save(()=>{
+        console.log("session:", req.session.pokemon)
+      res.redirect('/pokemon')
+    })
+    })
+  },
+
+//REMOVE ONE POKEMON FROM THE GYM
+  removeFromGym: function(req, res){
+    req.session.pokemon = req.session.pokemon.filter((item)=>{
+      return item.id != req.params.id;
+    })
+
+    res.redirect('/pokemon')
   },
 
   //CREATE / ADD NEW POKEMON

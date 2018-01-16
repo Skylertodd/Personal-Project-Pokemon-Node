@@ -21,6 +21,10 @@ body {
   background-size: cover;
 }
 
+#img{
+  background:rgba(255,255,255, 0.6);
+}
+
 /* Disable ugly boxes around images in IE10 */
 /*a img{
   border: 0px;

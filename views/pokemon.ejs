@@ -8,7 +8,7 @@
           <th class="black-text">NAME</th>
           <th class="black-text">TRANIER ID</th>
           <th class="black-text"> COMBAT POWER</th>
-          <th class="black-text"> IN GYM</th>
+          <!-- <th class="black-text"> IN GYM</th> -->
         </tr>
       </thead>
       <tbody class="bold-italic-text">
@@ -18,9 +18,13 @@
             <td class="black-text"><a href="/show/<%= pokemon[i].id %>"><%= pokemon[i].name%></a></td>
             <td class="black-text"><%= pokemon[i].trainer_id%></td>
             <td class="black-text"><%= pokemon[i].cp %></td>
-            <td class="black-text"><%= pokemon[i].in_gym %></td>
-            <td class="black-text"><a href="" class="waves-effect waves-light btn add-pokemon-btn">REMOVE FROM GYM</a></td>
-            <td class="black-text"><a href=""class="waves-effect waves-light btn add-pokemon-btn">ASSIGN TO GYM</a></td>
+            <!-- <td class="black-text"><%= pokemon[i].in_gym %></td> -->
+            <td class="black-text"><a href="/pokemon/removeFromGym/<%=pokemon[i].id%>" class="waves-effect waves-light btn add-pokemon-btn">REMOVE FROM GYM</a></td>
+            <% if(gym.filter(item=> item.id==pokemon[i].id).length !=1 && gym.length<2){ %>
+            <td class="black-text"><a href="/pokemon/addToGym/<%=pokemon[i].id%>"class="waves-effect waves-light btn add-pokemon-btn">ASSIGN TO GYM</a></td>
+            <% }else{%>
+            <td class="black-text"><a href=""class="waves-effect waves-light btn add-pokemon-btn">GYM OCCUPIED</a></td>
+              <% }%>
             <td class="black-text"><a href="/editNew/<%=pokemon[i].id%>" class="waves-effect waves-light btn add-pokemon-btn">EDIT</a></td>
             <td class="black-text"><a href="/delete/<%=pokemon[i].id%>" class="waves-effect waves-light btn add-pokemon-btn">DELETE</a></td>
           </tr>
