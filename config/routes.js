@@ -33,7 +33,10 @@ module.exports = function(app){
 //GET ROUTE FOR REMOVING A POKEMON FROM THE GYM
   app.get('/pokemon/removeFromGym/:id', pokemon.removeFromGym);
 
-//POST ROUTE FOR UPDATING POKEMON PROPERTIES
+//POST ROUTE FOR EDITING GYM PAGE
+  // app.post('/editGym')
+
+//POST ROUTE FOR UPDATING AND SELECTING POKEMON ON GYM PAGE
   app.post('/updateGym', gym.updateGym);
 
 //GET ROUTE FOR CREATE PAGE

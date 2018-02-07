@@ -6,10 +6,15 @@ module.exports = {
 //CREATE GYM PAGE
   createGym: function(req, res) {
     console.log("session.pokemon:", req.session.pokemon);
-    let pokemon1 = req.session.pokemon[0] || { name: "Select a pokemon"};
-    let pokemon2 = req.session.pokemon[1] || { name: "Select a pokemon"};
-    // res.render("gym", {challenger1: req.session.pokemon[0], challenger2: req.session.pokemon[1]});
-    res.render("gym", {challenger1: pokemon1, challenger2: pokemon2});
+    knex('pokemon').then((result) => {
+      console.log("result", result[0].name);
+      let pokemon1 = req.session.pokemon[0]
+      let pokemon2 = req.session.pokemon[1]
+      res.render("gym", {challenger1: pokemon1, challenger2: pokemon2, allpokemon: result});
+    })
+    .catch((err) => {
+      console.error(err)
+    });
   },
 
 //UPDATE POKEMON - SELECT A POKEMON FROM THE DROP DOWN MENU IN THE GYM
@@ -20,3 +25,5 @@ module.exports = {
         res.redirect('/')
     }
 }
+
+  

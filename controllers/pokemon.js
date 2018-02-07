@@ -92,15 +92,16 @@ module.exports = {
 
   //EDIT FORM USED TO MAKE CHANGES IN THE POKEMON PROPERTIES
   editNew: function(req, res){
+
     knex('pokemon')
       .where('id', req.params.id)
       .then((pokemon)=>{
 
         knex('trainers')
-        .where('id', pokemon[0].trainer_id)
+        // .where('id', pokemon[0].trainer_id)
         .then((trainers)=>{
 
-          res.render('editPokemon', {pok: pokemon[0], trainer: trainers[0]});
+          res.render('editPokemon', {pok: pokemon[0], trainer: trainers});
         })
     })
   },

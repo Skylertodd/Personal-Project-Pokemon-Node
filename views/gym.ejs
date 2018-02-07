@@ -2,9 +2,56 @@
 <!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
 <%- contentFor('body') %>
 
-  <h3 class='black-text'>POKEMON FIGHT CLUB</h3>
-  <form class='highlight' action="/updateGym/" method="post">
-  <label for="name">CHALLENGER 1:</label>
-  <input class="highlight"type="text" name="name" value="<%= challenger1.name %>">
-  <label for="name">CHALLENGER 2:</label>
-  <input class="highlight"type="text" name="name" value="<%= challenger2.name %>"
+<div>
+  <h3 class="center">*POKEMON DUELING AREA*</h3>
+  <form action="/updateGym/" method="post">
+    <h5 class="black-text">CHALLENGER 1:</h5>
+        <% if(challenger1){ %>
+            <input type="text" name="name" value="<%= challenger1.name %>">
+            <input type="number" name="combat power" value="<%= challenger1.cp %>">
+          <% } else { %>
+            <select class="challenger1" name="challenger1">
+              <% for(var i = 0; i < allpokemon.length; i++){ %>
+                <option value="<%=allpokemon[i].name %>">
+                  <%=allpokemon[i].name%>
+                  COMBAT POWER: <%=allpokemon[i].cp%>
+                </option>
+              <%  } %>
+            </select>
+        <% } %>
+
+    <h3 class='black-text center'>VS</h3>
+
+    <h5 class='black-text'>CHALLENGER 2:</h5>
+        <% if(challenger2){ %>
+            <input class="highlight"type="text" name="name" value="<%= challenger2.name %>">
+            <input class="highlight"type="number" name="combat power" value="<%= challenger2.cp %>">
+        <% } else { %>
+            <select class="challenger2" name="challenger2">
+              <% for(var i = 0; i < allpokemon.length; i++){ %>
+                <option value="<%=allpokemon[i].name %>">
+                  <%=allpokemon[i].name %>
+                  COMBAT POWER: <%=allpokemon[i].cp%>
+                </option>
+              <%  } %>
+            </select>
+        <% } %>
+  </form>
+  <div class="center">
+    <button  id="fight" class="highlightwaves-effect waves-light btn" type="button" name="button">FIGHT!</button>
+    <% if(challenger1 == challenger2) { %>
+      <textarea name="name" rows="8" cols="80">The Same Pokemon Can't Fight Each Other!</textarea>
+    <% } %>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $('select').material_select();
+    console.log("hiiiiiiiiiiii");
+
+    let fightBTN = document.getElementById('fight');
+    console.log("fightBTN", fightBTN);
+
+</script>
