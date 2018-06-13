@@ -2,28 +2,47 @@ const knex = require("../db/knex.js");
 
 module.exports = {
 
+  main: function(req, res) {
+     let in_gym_true = [];
+     let in_gym_false = [];
+     console.log("session.pokemon:", req.session.pokemon);
+     knex('pokemon').then((results) => {
+       for (let i = 0; i < results.length; i++) {
+         if (results[i].in_gym == true) {
+           in_gym_true.push(results[i])
+         } else {
+           in_gym_false.push(results[i])
+         }
+       }
+       res.render('gym', {in_gym_false:in_gym_false, in_gym_true:in_gym_true});
+     })
+   },
+   addGym: function(req, res) {
+   knex('pokemon').where('id', req.body.id).update({in_gym: true})
+     .then((results) => {
+       if (req.session.pokemon[0].p1 == undefined) {
+         req.session.pokemon[0].p1 = req.body.id
+       } else {
+         req.session.pokemon[0].p2 = req.body.id
+       }
+     res.redirect('/gym');
+   })
+ },
 
-//CREATE GYM PAGE
-  createGym: function(req, res) {
-    console.log("session.pokemon:", req.session.pokemon);
-    knex('pokemon').then((result) => {
-      console.log("result", result[0].name);
-      let pokemon1 = req.session.pokemon[0]
-      let pokemon2 = req.session.pokemon[1]
-      res.render("gym", {challenger1: pokemon1, challenger2: pokemon2, allpokemon: result});
-    })
-    .catch((err) => {
-      console.error(err)
-    });
-  },
+ removeGym: function(req, res) {
+   knex('pokemon').where('id', req.body.id).update({in_gym: false})
+     .then((results) => {
+     res.redirect('/gym');
+   })
+ },
 
-//UPDATE POKEMON - SELECT A POKEMON FROM THE DROP DOWN MENU IN THE GYM
-  updateGym: function(req, res){
-    req.session.pokemon = []
-        console.log("req.body: ", req.body);
-        req.session.pokemon.push(req.body)
-        res.redirect('/')
-    }
+ reset: function(req, res) {
+   console.log("req.body: ", req.body);
+   knex('pokemon').update({in_gym:false})
+     .then(() => {
+       req.session.pokemon = [{}];
+       res.redirect('/gym');
+     })
+ },
+
 }
-
-  

@@ -11,17 +11,6 @@
       <label for="name">IN GYM: TRUE OR FALSE?</label>
       <input class="highlight" type="text" name="in_gym" value="<%= pok.in_gym %>"placeholder="IN GYM: TRUE OR FALSE?">
       <label for="name">SELECT NEW TRAINER FROM THE DROP DOWN MENU BELOW:</label>
-      <!-- <input class="highlight"type="number" name="trainer_id" value="<%= pok.trainer_id %>"placeholder="CHANGE TRAINER ID">
-      <input class="highlight"type="text" name="trainer_name" value="<%= trainer.name %>"placeholder="SELECT NEW TRAINER"> -->
-        <!-- <select class="" name="trainer_id">
-        <% for (let i = 0; i < trainer.length; i++) {%>
-          <option value="<%= pok.trainer_id %>">
-            <%=trainer[i].name%>
-          </option>
-        <% } %>
-      </select> -->
-
-
       <h2>Trainer:</h2>
       <select name="trainer_id">
         <% for (var i = 0; i < trainer.length; i++) {

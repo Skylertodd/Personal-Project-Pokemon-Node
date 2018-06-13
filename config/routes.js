@@ -6,7 +6,6 @@ const gym = require("../controllers/gym.js");
 
 module.exports = function(app){
 
-//ROUTE FOR CONTROLLING WHICH POKEMON ARE ASSIGNED TO THE GYM
   app.use(function(req,res, next){
     console.log("here");
     if(!req.session.pokemon){
@@ -24,20 +23,11 @@ module.exports = function(app){
 //GET ROUTE FOR SHOWING LISTING OF ONE POKEMON AND IT 'S PROPERTIES
   app.get('/show/:id', pokemon.showAll);
 
-//GET ROUTE CREATE GYM
-  app.get('/gym', gym.createGym);
-
 //GET ROUTE FOR ADDING/ASSIGNING A POKEMON TO THE GYM
   app.get('/pokemon/addToGym/:id', pokemon.addToGym);
 
 //GET ROUTE FOR REMOVING A POKEMON FROM THE GYM
   app.get('/pokemon/removeFromGym/:id', pokemon.removeFromGym);
-
-//POST ROUTE FOR EDITING GYM PAGE
-  // app.post('/editGym')
-
-//POST ROUTE FOR UPDATING AND SELECTING POKEMON ON GYM PAGE
-  app.post('/updateGym', gym.updateGym);
 
 //GET ROUTE FOR CREATE PAGE
   app.get('/pokemon/create', pokemon.create);
@@ -53,6 +43,18 @@ module.exports = function(app){
 
 //POST ROUTE FOR UPDATING POKEMON PROPERTIES
   app.post('/update/:id', pokemon.update);
+
+//GET ROUTE FOR GYM MAIN PAGE
+    app.get('/gym', gym.main);
+
+//POST ROUTE FOR ADDING POKEMON ON THE GYM PAGE
+    app.post('/gym/add', gym.addGym);
+
+//POST ROUTE FOR REMOVING POKEMON FROM THE GYM
+    app.post('/gym/remove', gym.removeGym);
+
+//GET ROUTE FOR CLEARING ANY POKEMON FROM THE GYM
+    app.get('/gym/reset', gym.reset);
 
  //GET ROUTE FOR LISTING ALL THE TRAINERS
   app.get('/trainers', trainers.getTrainers);

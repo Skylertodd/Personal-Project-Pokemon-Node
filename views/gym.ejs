@@ -2,56 +2,65 @@
 <!-- Everything below line 3 feel free to delete and or build on. This is just sample data -->
 <%- contentFor('body') %>
 
-<div>
-  <h3 class="center">*POKEMON DUELING AREA*</h3>
-  <form action="/updateGym/" method="post">
-    <h5 class="black-text">CHALLENGER 1:</h5>
-        <% if(challenger1){ %>
-            <input type="text" name="name" value="<%= challenger1.name %>">
-            <input type="number" name="combat power" value="<%= challenger1.cp %>">
-          <% } else { %>
-            <select class="challenger1" name="challenger1">
-              <% for(var i = 0; i < allpokemon.length; i++){ %>
-                <option value="<%=allpokemon[i].name %>">
-                  <%=allpokemon[i].name%>
-                  COMBAT POWER: <%=allpokemon[i].cp%>
-                </option>
-              <%  } %>
-            </select>
-        <% } %>
 
-    <h3 class='black-text center'>VS</h3>
-
-    <h5 class='black-text'>CHALLENGER 2:</h5>
-        <% if(challenger2){ %>
-            <input class="highlight"type="text" name="name" value="<%= challenger2.name %>">
-            <input class="highlight"type="number" name="combat power" value="<%= challenger2.cp %>">
-        <% } else { %>
-            <select class="challenger2" name="challenger2">
-              <% for(var i = 0; i < allpokemon.length; i++){ %>
-                <option value="<%=allpokemon[i].name %>">
-                  <%=allpokemon[i].name %>
-                  COMBAT POWER: <%=allpokemon[i].cp%>
-                </option>
-              <%  } %>
-            </select>
-        <% } %>
-  </form>
-  <div class="center">
-    <button  id="fight" class="highlightwaves-effect waves-light btn" type="button" name="button">FIGHT!</button>
-    <% if(challenger1 == challenger2) { %>
-      <textarea name="name" rows="8" cols="80">The Same Pokemon Can't Fight Each Other!</textarea>
+    <% if (in_gym_true[0] && in_gym_true[1]) { %>
+      <button id="battleButton" class="highlightwaves-effect waves-light btn" type="button" type="button">Battle!</button>
+      <a href="/gym/reset"><button class="btn" type="button">Reset Gym</button></a>
     <% } %>
-  </div>
-</div>
 
+      <div>
+        <h3 class="center">*POKEMON DUELING AREA*</h3>
+            <h5 class="black-text">CHALLENGER 1:</h5>
+              <% if (!in_gym_true[0]) { %>
+                <form action="/gym/add" method="post">
+                  <select class="in_gym_true" name="id">
+                <% for (let i = 0; i < in_gym_false.length; i++) { %>
+                  <option value="<%= in_gym_false[i].id %>"><%= in_gym_false[i].name %></option>
+                <% } %>
+                </select>
+              <button class="btn btn-primary" type="submit">Add to Gym</button>
+              </form>
+            <% } %>
 
+            <% if (in_gym_true[0]) { %>
+            <h1><a href=#><%= in_gym_true[0].name %></a></h1>
+                <% if ((in_gym_true[0] && in_gym_true[1]) && (in_gym_true[0].cp > in_gym_true[1].cp)) { %>
+                  <div id="winner1" class="winner"><h3>Winner!</h3></div>
+                <% } %>
+            <% } %>
+
+      </div>
+
+      <div>
+          <h3 class='black-text center'>VS</h3>
+
+            <h5 class='black-text'>CHALLENGER 2:</h5>
+            <% if (!in_gym_true[1]) { %>
+            <p><form class="" action="/gym/add" method="post">
+              <select class="form-control" name="id">
+                <% for (let i = 0; i < in_gym_false.length; i++) { %>
+                  <option value="<%= in_gym_false[i].id %>"><%= in_gym_false[i].name %></option>
+                <% } %>
+              </select></p>
+              <p><button class="btn btn-primary" type="submit">Add to Gym</button></p>
+            </form>
+            <% } %>
+            <% if (in_gym_true[1]) { %>
+            <h1><a href=#><%= in_gym_true[1].name %></a></h1>
+            <img class="pokemon-image" src="<%= in_gym_true[1].img_url %>" alt="">
+              <% if (in_gym_true[1] && in_gym_true[0]) { %>
+                <% if (in_gym_true[1].cp > in_gym_true[0].cp) { %>
+                  <div id="winner2" class="winner"><h3>Winner!</h3></div>
+                <% } %>
+              <% } %>
+            <% } %>
+      </div>
+      
 <script type="text/javascript">
 
     $('select').material_select();
-    console.log("hiiiiiiiiiiii");
 
-    let fightBTN = document.getElementById('fight');
-    console.log("fightBTN", fightBTN);
+    // let battleButton = document.getElementById('battle');
+    // console.log("battleButton", battleButton);
 
-</script>
+</script>;
