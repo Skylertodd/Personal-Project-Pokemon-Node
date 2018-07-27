@@ -8,10 +8,7 @@
       <input class="highlight"type="text" name="name" value="<%= pok.name %>" placeholder="CHANGE POKEMON NAME">
       <label for="name">CHANGE COMBAT POWER:</label>
       <input class="highlight"type="number" name="cp" value="<%= pok.cp %>"placeholder="CHANGE COMBAT POWER">
-      <label for="name">IN GYM: TRUE OR FALSE?</label>
-      <input class="highlight" type="text" name="in_gym" value="<%= pok.in_gym %>"placeholder="IN GYM: TRUE OR FALSE?">
       <label for="name">SELECT NEW TRAINER FROM THE DROP DOWN MENU BELOW:</label>
-      <h2>Trainer:</h2>
       <select name="trainer_id">
         <% for (var i = 0; i < trainer.length; i++) {
            if (trainer[i].id === pok.trainer_id) { %>
